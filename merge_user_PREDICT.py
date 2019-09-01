@@ -1,0 +1,50 @@
+import networkx as nx
+
+# f = open('testUsers.txt', 'r')
+f = open('./network_PREDICT_DONE.txt', 'r')
+# get the user graph from the txt
+userStr = f.read()
+userDict = eval(userStr)
+userGraph = nx.DiGraph(userDict)
+
+print("Nodes number: %d" % (userGraph.number_of_nodes()))
+print("Edges number: %d" % (userGraph.number_of_edges()))
+
+f1 = userGraph.add_edges_from(eval(open('./travis/l1.txt', 'r').read()))
+f2 = userGraph.add_edges_from(eval(open('./travis/l2.txt', 'r').read()))
+f3 = userGraph.add_edges_from(eval(open('./travis/l3.txt', 'r').read()))
+f4 = userGraph.add_edges_from(eval(open('./travis/l4.txt', 'r').read()))
+f5 = userGraph.add_edges_from(eval(open('./travis/l5.txt', 'r').read()))
+f6 = userGraph.add_edges_from(eval(open('./travis/l6.txt', 'r').read()))
+f7 = userGraph.add_edges_from(eval(open('./travis/l7.txt', 'r').read()))
+f8 = userGraph.add_edges_from(eval(open('./travis/l8.txt', 'r').read()))
+f9 = userGraph.add_edges_from(eval(open('./travis/l9.txt', 'r').read()))
+f10 = userGraph.add_edges_from(eval(open('./travis/l10.txt', 'r').read()))
+f11 = userGraph.add_edges_from(eval(open('./travis/l11.txt', 'r').read()))
+f12 = userGraph.add_edges_from(eval(open('./travis/l12.txt', 'r').read()))
+f13 = userGraph.add_edges_from(eval(open('./travis/l13.txt', 'r').read()))
+f14 = userGraph.add_edges_from(eval(open('./travis/l14.txt', 'r').read()))
+f15 = userGraph.add_edges_from(eval(open('./travis/l15.txt', 'r').read()))
+f16 = userGraph.add_edges_from(eval(open('./travis/l16.txt', 'r').read()))
+f17 = userGraph.add_edges_from(eval(open('./travis/l17.txt', 'r').read()))
+f18 = userGraph.add_edges_from(eval(open('./userEdgeListPredict0.txt', 'r').read()))
+f19 = userGraph.add_edges_from(eval(open('./userEdgeListPredict1.txt', 'r').read()))
+f20 = userGraph.add_edges_from(eval(open('./userEdgeListPredict2.txt', 'r').read()))
+f21 = userGraph.add_edges_from(eval(open('./userEdgeListPredict3.txt', 'r').read()))
+f22 = userGraph.add_edges_from(eval(open('./userEdgeListPredict4.txt', 'r').read()))
+f23 = userGraph.add_edges_from(eval(open('./userEdgeListPredict5.txt', 'r').read()))
+f24 = userGraph.add_edges_from(eval(open('./userEdgeListPredict6.txt', 'r').read()))
+f25 = userGraph.add_edges_from(eval(open('./userEdgeListPredict7.txt', 'r').read()))
+f26 = userGraph.add_edges_from(eval(open('./userEdgeListPredict8.txt', 'r').read()))
+f27 = userGraph.add_edges_from(eval(open('./userEdgeListPredict9.txt', 'r').read()))
+f28 = userGraph.add_edges_from(eval(open('./userEdgeListPredict10.txt', 'r').read()))
+f29 = userGraph.add_edges_from(eval(open('./userEdgeListPredict11.txt', 'r').read()))
+
+output = nx.to_dict_of_dicts(userGraph)
+strOutput = str(output)
+f = open('network_PREDICT_DONE.txt', 'w')
+f.write(strOutput)
+f.close()
+
+
+
