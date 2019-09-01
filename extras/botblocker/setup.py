@@ -35,9 +35,9 @@ setup(
 	entry_points={
 		'console_scripts':['botblocker=botblocker.__init__:main']
 	},
-	dependency_links=['https://github.com/tweepy/tweepy/archive/master.zip#egg=tweepy-3.6.0'],
+	dependency_links=['https://github.com/tweepy/tweepy/archive/master.zip#egg=tweepy-3.8.0'],
 	install_requires=[
-          'tweepy==3.6.0',
+          'tweepy==3.8.0',
           'botometer',
           'huepy',
           'pyperclip',

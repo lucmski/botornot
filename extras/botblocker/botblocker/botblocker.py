@@ -1,4 +1,5 @@
 import tweepy
+import twint
 import pickle
 from huepy import *
 from datetime import datetime
@@ -7,6 +8,15 @@ from math import floor
 from botometer import Botometer
 from .settings import config_complete_path
 from .errors import error
+
+
+def get_followers_twint(username):
+    c = twint.Config()
+    c.Username = username
+    c.Store_object = True
+    # c.Limit = 20
+    twint.run.Followers(c)
+    return twint.output.follows_list
 
 def get_followers(api, username):
     followers = []
@@ -29,7 +39,8 @@ def filter_followers(location, followers):
 
 def create_botometer(mashape_key, twitter_api_auth):
     try:
-        bom = Botometer(wait_on_rate_limit=True, mashape_key=mashape_key, **twitter_api_auth)
+        # 8HK07BkyjOmshRCv6uHzqpJm73eSp1TUxNVjsnKYKn25VJG2rL
+        bom = Botometer(wait_on_rate_limit=True, mashape_key="bd3376f8eemsh4ffa96f56d33b33p16f69cjsn802fbb18ba09", **twitter_api_auth)
     except tweepy.TweepError:
         error(config_complete_path, 'Failed to connect to Botometer API')
     return bom

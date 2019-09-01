@@ -7,7 +7,7 @@ from configparser import ConfigParser
 from .settings import config_path, config_complete_path
 from .settings import initial_config, user_config, confirm
 from .errors import clear_errors
-from .botblocker import get_followers, filter_followers, create_botometer
+from .botblocker import get_followers, get_followers_twint, filter_followers, create_botometer
 from .botblocker import identify_bots, Block, block_bots, add_to_allowlist
 
 parser = argparse.ArgumentParser(description='Python program to identify and block your bot followers on Twitter')
@@ -65,7 +65,8 @@ def main():
     bom = create_botometer(config['API'].get('MashapeKey', None), twitter_api_auth)
     
     allowlist_path = config['Global'].get('AllowListPath', pathjoin(config_path, 'AllowList.pickle'))
-    followers = filter_followers(allowlist_path, get_followers(api, username))
+    followers = filter_followers(allowlist_path, get_followers_twint(username))
+    # followers = filter_followers(allowlist_path, get_followers(api, username))
 
     level = args.level
     while_block = Block(args.noblock, args.softblock, args.report)
